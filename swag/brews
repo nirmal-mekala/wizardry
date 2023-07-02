@@ -1,6 +1,7 @@
 git
 node
 wget
+curl
 mas
 yarn
 exa
@@ -8,3 +9,8 @@ neofetch
 bat
 neovim
 romkatv/powerlevel10k/powerlevel10k
+todo-txt
+ghq
+peco
+rename
+ripgrep
