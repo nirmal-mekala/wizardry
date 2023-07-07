@@ -132,6 +132,8 @@ fi
 if [ -e $cwd/installs/brews ]; then
 	chapter "Installing Homebrew formulae…"
 
+  brew tap homebrew/cask-fonts
+
 	for brew in $(<$cwd/installs/brews); do
 		install_brews $brew
 	done
@@ -148,6 +150,8 @@ brew update
 ###############################################################################
 if [ -e $cwd/installs/casks ]; then
 	chapter "Installing apps via Homebrew…"
+
+
 
 	for cask in $(<$cwd/installs/casks); do
 	    install_application_via_brew $cask
