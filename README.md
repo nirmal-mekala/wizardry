@@ -8,7 +8,7 @@ It can be run multiple times on the same machine safely. It installs, upgrades, 
 
 ```sh
 cd wizardry
-./configuratio 2>&1 | tee ~/configuratio.log
+./imperio 2>&1 | tee ~/imperio.log
 ```
 
 <!--## Acknowledgements
