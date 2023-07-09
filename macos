@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+printf "Setting up dock, mouse rate, and key repeat\n"
 # Move dock to LHS
 defaults write com.apple.dock orientation -string left
 
@@ -16,7 +17,36 @@ defaults write -g InitialKeyRepeat -int 25
 # Use a fast mouse movement rate
 defaults write -g com.apple.mouse.scaling -float 6.0
 
+# Set desktop bg with m-cli
+
+# Clone bgs directory if it doesn’t exist
+if [ ! -e "$HOME/Desktop/.bgs" ]; then
+  printf "Cloning backgrounds into ~/Desktop/.bgs…\n"
+  git clone https://github.com/ndmekala/bgs.git "$HOME/Desktop/.bgs"
+fi
+
+# Set the desktop background to match the season
+if [[ $(brew list | grep m-cli) ]]; then
+  mmdd=$(date '+%m%d' | sed 's/^0*//')
+  if [[ $mmdd -lt 300 || $mmdd -ge 1200 ]]; then
+    printf "Setting the winter ❄️  background…\n"
+    m wallpaper "$HOME/Desktop/.bgs/winter.jpg"
+  elif [[ $mmdd -ge 300 && $mmdd -lt 600 ]]; then
+    printf "Setting the spring 🌱 background…\n"
+    m wallpaper "$HOME/Desktop/.bgs/spring.jpg"
+  elif [[ $mmdd -ge 600 && $mmdd -lt 915 ]]; then
+    printf "Setting the summer 😎 background…\n"
+    m wallpaper "$HOME/Desktop/.bgs/summer.jpg"
+  elif [[ $mmdd -ge 915 || $mmdd -lt 1200 ]]; then
+    printf "Setting the fall 🍂 background…\n"
+    m wallpaper "$HOME/Desktop/.bgs/fall.jpg"
+  fi
+else
+  printf "m-cli not installed! Skipping…\\nn"
+fi
+
+
 # TODO
 # - [ ] disable magnification of dock icons
 # - [ ] map bottom left hot corner to mission control
-# - [ ] disable spotlight
+# - [ ] disable spotlight (?)
