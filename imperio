@@ -113,8 +113,25 @@ fi
 if ! [ -x "$(command -v brew)" ]; then
 	step "Installing Homebrew…"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> $HOME/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  case $(uname -m) in
+    'arm64')
+      homebrew_path='/opt/homebrew'
+      ;;
+    'x86_64')
+      homebrew_path='/usr/local'
+      ;;
+    *)
+      echo 'An error occurred parsing system architecture'
+      ;;
+  esac
+
+  # NOTE this code has not been tested thoroughly, but it intends to paramaterize
+  # the homebrew path so as to enable dynamic installation on either arm or x86 systems
+
+  (echo; echo "eval \"\$(\$homebrew_path/bin/brew shellenv)\"") >> $HOME/.zprofile
+  eval "\$(\$homebrew_path/bin/brew shellenv)"
+
 	print_success "Homebrew installed!"
 else
 	print_success_muted "Homebrew already installed. Skipping."
