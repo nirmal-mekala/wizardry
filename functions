@@ -553,6 +553,6 @@ label_green() {
 
 completed() {
     printf "
-  ${bold}That spell🪄 works every time.${normal}
+  ${bold}That spell 🪄 works every time.${normal}
 "
 }
