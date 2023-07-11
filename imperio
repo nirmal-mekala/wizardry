@@ -186,17 +186,16 @@ if [ -x mas ]; then
 	else
 
 	if [ -e $cwd/installs/apps ]; then
-		if mas_setup; then
-			# Workaround for associative array in Bash 3
-			# https://stackoverflow.com/questions/6047648/bash-4-associative-arrays-error-declare-a-invalid-option
-			for app in $(<$cwd/installs/apps); do
-				KEY="${app%%::*}"
-				VALUE="${app##*::}"
-				install_application_via_app_store $KEY $VALUE
-			done
-		else
-			print_warning "Please signin to App Store first. Skipping."
-		fi
+    # The account command is not supported as of macOS 12, skip that check
+    # https://github.com/mas-cli/mas#known-issues
+
+		# Workaround for associative array in Bash 3
+		# https://stackoverflow.com/questions/6047648/bash-4-associative-arrays-error-declare-a-invalid-option
+		for app in $(<$cwd/installs/apps); do
+			KEY="${app%%::*}"
+			VALUE="${app##*::}"
+			install_application_via_app_store $KEY $VALUE
+		done
 	fi
 
 fi
