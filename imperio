@@ -93,10 +93,13 @@ fi
 # -----------------------------------------------------------------------------
 # NVM
 # -----------------------------------------------------------------------------
-if [ -x nvm ]; then
+if ! [ -x nvm ]; then
 	step "Installing NVM…"
 	curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 	print_success "NVM installed!"
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 	step "Installing latest Node…"
 	nvm install node
 	nvm use node
@@ -223,24 +226,12 @@ fi
 ###############################################################################
 # OPTIONAL: Customizations
 ###############################################################################
-chapter "Performing additional setup…"
+chapter "Running customizations…"
 
-if ask "Do you want to setup dotfiles right now?" Y; then
-  clone_dotfiles
-  printf "\n  Setting up dotfiles…\n"
-  . "$HOME/.dotfiles/setup_dotfiles"
+if [ -f "$cwd/customizations" ]; then
+	. "$cwd/customizations"; printf "\n  Performing customizations…";
 else
-  print_success_muted "Declined to setup dotfiles. Skipped.";
-fi
-if [ -e $cwd/macos ]; then
-  if ask "Do you want to set up macOS defaults?" Y; then
-    printf "\n  Setting up macOS defaults…\n"
-    . "$cwd/macos"
-  else
-    print_success_muted "Declined to setup macOS defaults. Skipped.";
-  fi
-else
-  print_warning "No macOS setup script found! Skipping."
+	print_warning "No customizations found. Skipping."
 fi
 
 ###############################################################################

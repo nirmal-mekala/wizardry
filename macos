@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-printf "Setting up dock, mouse rate, and key repeat\n"
+# Setup defaults
+# ==============
+printf "Setting up dock, mouse rate, hot corners, minimze effect, and key repeat\n"
 # Move dock to LHS
 defaults write com.apple.dock orientation -string left
 
@@ -17,7 +19,15 @@ defaults write -g InitialKeyRepeat -int 25
 # Use a fast mouse movement rate
 defaults write -g com.apple.mouse.scaling -float 6.0
 
+# Configure the bottom left hotcorner to Mission Control
+defaults write com.apple.dock wvous-bl-corner -int 2
+defaults write com.apple.dock wvous-bl-modifier -int 0
+
+# Change minimize/maximize window effect
+defaults write com.apple.dock mineffect -string "scale"
+
 # Set desktop bg with m-cli
+# =========================
 
 # Clone bgs directory if it doesn’t exist
 if [ ! -e "$HOME/Desktop/.bgs" ]; then
@@ -46,7 +56,3 @@ else
 fi
 
 
-# TODO
-# - [ ] disable magnification of dock icons
-# - [ ] map bottom left hot corner to mission control
-# - [ ] disable spotlight (?)

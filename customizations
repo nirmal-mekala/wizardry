@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if [ -e functions ]; then
+	cd "$(dirname "${BASH_SOURCE[0]}")" \
+		&& . "functions"
+else
+	printf "\n ⚠️  ./functions not found\n"
+	exit 1
+fi
+
+clone_dotfiles() {
+  if [ ! -e ""$HOME"/.dotfiles" ]; then
+    echo_install "Cloning dotfiles to "$HOME"/.dotfiles"
+    git clone https://github.com/ndmekala/dotfiles ""$HOME"/.dotfiles"
+  fi
+}
+
+if ask "Do you want to setup dotfiles right now?" Y; then
+  clone_dotfiles
+  printf "\n  Setting up dotfiles…\n"
+  . "$HOME/.dotfiles/setup_dotfiles"
+else
+  print_success_muted "Declined to setup dotfiles. Skipped.";
+fi
+if [ -e $cwd/macos ]; then
+  if ask "Do you want to set up macOS defaults?" Y; then
+    printf "\n  Setting up macOS defaults…\n"
+    . "$cwd/macos"
+  else
+    print_success_muted "Declined to setup macOS defaults. Skipped.";
+  fi
+else
+  print_warning "No macOS setup script found! Skipping."
+fi
