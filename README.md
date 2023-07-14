@@ -1,19 +1,53 @@
 # Wizardry 🧙🏾‍♂️
 
+![The Wizard of Oz](assets/oz.jpg)
+
 > A great and powerful script for bootstrapping macOS. Forked from [formation](https://github.com/minamarkham/formation).
 
 It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
 
-## Run
+## Customization
+
+> Because there’s no place like `~`.
+
+This script is designed to be _customized_. As is, `customizations` clones and configure _my_ [dotfiles](https://github.com/ndmekala/dotfiles) _my_ macOS preferences—including setting a [seasonal desktop background](https://github.com/ndmekala/bgs).
+
+## What It Installs
+
+This script installs my favorite GUI and CLI utilities, apps, text editors, IDEs, fonts as a front-end SWE. Browse through the `installs` directory to see what it includes.
+
+## Running
+
+Read through the scripts before running so you know what’s going on.
+
+If you’re feeling lucky, you can simply run:
 
 ```sh
-cd wizardry
+./imperio
+```
+Or, to run and save output:
+
+```sh
 ./imperio 2>&1 | tee ~/imperio.log
 ```
 
-<!--## Acknowledgements
+## Known Issues
 
-Inspiration and code was taken from many sources, including:
+Cask does not recognize applications installed outside of Homebrew Cask – in the case that the script fails, you can either remove the application from the install list or uninstall the application causing the failure and try again.
 
-- [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles)
-- thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)-->
+## Acknowledgements
+
+This script is a fork of [formation](https://github.com/minamarkham/formation). It also draws from…
+- [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles) (particularly with `macos`)
+- thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
+
+Also, wizards of all stripes…
+
+![The Patil twins from the Harry Potter films](assets/patil-twins.webp)
+
+![Gandalf and Radagast from Lord of the Rings](assets/gandalf-and-radagast.jpg)
+
+![Michale Jordan on the Washington Wizards](assets/mj.jpeg)
+
+
+
