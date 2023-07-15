@@ -42,12 +42,9 @@ This script is a fork of [formation](https://github.com/minamarkham/formation). 
 - thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
 
 Also, wizards of all stripes…
-
+<div align="center">
 ![The Patil twins from the Harry Potter films](assets/patil-twins.webp)
-
 ![Gandalf and Radagast from Lord of the Rings](assets/gandalf-and-radagast.jpg)
-
 ![Michale Jordan on the Washington Wizards](assets/mj.jpeg)
-
-
+</div>
 
