@@ -2,9 +2,7 @@
 
 > A great and powerful ~~script~~ **spell** for configuring macOS. Forked from [formation](https://github.com/minamarkham/formation).
 
-<div align="center">
-    <img src="assets/oz.jpg" alt="The Wizard of Oz"/>
-</div>
+![The Wizard of Oz](assets/oz.jpg)
 
 It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
 
@@ -44,9 +42,6 @@ This script is a fork of [formation](https://github.com/minamarkham/formation). 
 - thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
 
 Also, wizards of all stripes…
-<div align="center">
-    <img src="assets/patil-twins.jpeg" alt="The Patil twins from the Harry Potter films"/><br/><br/>
-    <img src="assets/gandalf-and-radagast.jpg" alt="Gandalf and Radagast from Lord of the Rings"/><br/><br/>
-    <img src="assets/mj.jpeg" alt="Michael Jordan on the Washington Wizards"/>
-</div>
-
+![The Patil twins from the Harry Potter films](assets/patil-twins.jpeg)
+![Gandalf and Radagast from Lord of the Rings](assets/gandalf-and-radagast.jpg)
+![Michael Jordan on the Washington Wizards](assets/mj.jpeg)
