@@ -10,7 +10,7 @@ It can be run multiple times on the same machine safely. It installs, upgrades, 
 
 > Because there’s no place like `~`.
 
-This script is designed to be _customized_. As is, `customizations` clones and configure _my_ [dotfiles](https://github.com/ndmekala/dotfiles) _my_ macOS preferences—including setting a [seasonal desktop background](https://github.com/ndmekala/bgs).
+This script is designed to be _customized_. As is, `customizations` clones and configure _my_ [dotfiles](https://github.com/ndmekala/dotfiles) and macOS preferences—including setting a [seasonal desktop background](https://github.com/ndmekala/bgs).
 
 ## What It Installs
 
