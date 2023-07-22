@@ -12,11 +12,7 @@ It can be run multiple times on the same machine safely. It installs, upgrades, 
 
 This script is designed to be _customized_. As is, `customizations` clones and configure _my_ [dotfiles](https://github.com/ndmekala/dotfiles) and macOS preferences—including setting a [seasonal desktop background](https://github.com/ndmekala/bgs).
 
-## What It Installs
-
-This script installs my favorite GUI and CLI utilities, apps, text editors, IDEs, fonts as a front-end SWE. Browse through the `installs` directory to see what it includes.
-
-## Running
+## Usage
 
 Read through the scripts before running so you know what’s going on.
 
@@ -30,6 +26,10 @@ Or, to run and save output:
 ```sh
 ./imperio 2>&1 | tee ~/imperio.log
 ```
+
+## What’s Included
+
+This script installs the macOS and CLI utilities, apps, text editors, IDEs, and nerd fonts that I use to stay productive. Browse through the `installs` directory to see what it includes.
 
 ## Known Issues
 
