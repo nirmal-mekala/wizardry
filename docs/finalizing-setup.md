@@ -1,6 +1,6 @@
 # Finalizing Setup
 
-While the script will get you most of the way there,some setup remains. To
+While the script will get you most of the way there, some setup remains. To
 get things _just right_, follow these steps. You can even copy this file
 to  create an easy checklist.
 
@@ -26,6 +26,8 @@ to  create an easy checklist.
 ## Firefox
 
 - [ ] Make default browser.
+- [ ] Use duckduckgo.
+- [ ] Remove everything but search bar from new tab page.
 
 ### Configure Firefox Extensions
 
