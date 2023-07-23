@@ -53,7 +53,7 @@ to  create an easy checklist.
 ## Magnet
 
 - [ ] Configure to start at login.
-- [ ] Set upt o use hjkl i top right u top left m bottom left , bottom
+- [ ] Set up to use vimlike keybindings (control + option +) hjkl for left, down, up, right, and i top right u top left m bottom left , bottom
   right
 
 ## Organizer
