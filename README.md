@@ -43,8 +43,10 @@ This script is a fork of [formation](https://github.com/minamarkham/formation). 
 
 Also, wizards of all stripes…
 
-![The Patil twins from the Harry Potter films](assets/patil-twins.jpeg)
+![The Patil twins from the Harry Potter films](assets/patil-twins.jpg)
 
 ![Gandalf and Radagast from Lord of the Rings](assets/gandalf-and-radagast.jpg)
 
-![Michael Jordan on the Washington Wizards](assets/mj.jpeg)
+![Michael Jordan on the Washington Wizards](assets/mj.jpg)
+
+![Howl from Howl’s Moving Castle](assets/howl.jpg)
