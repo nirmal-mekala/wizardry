@@ -43,6 +43,7 @@ to  create an easy checklist.
 - [ ] put blur to ~ 51
 - [ ] unselect bold
 - [ ] use dark theme
+- [ ] set normal windows to use last session, hotkey window to use ~
 - [ ] keys > hotkey > dedicated hotkey window (ctrl x 2). No transparency.
   Full screen.
 
