@@ -97,6 +97,7 @@ to  create an easy checklist.
 - [ ] Set up hyper (command, shift, option, control) key + `[` to trigger
   the HDMI input.
 - [ ] Set up hyper key + `]` to trigger the displayport input.
+- [ ] Set up hyper key + `|` to trigger the vga input.
 
 ## Thor
 
