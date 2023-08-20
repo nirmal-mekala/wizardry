@@ -41,7 +41,7 @@ This script is a fork of [formation](https://github.com/minamarkham/formation). 
 - [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles) (particularly with `macos`)
 - thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
 
-Also, wizards of all stripes…
+I also want to acknowledge witches and wizards of all stripes…
 
 ![The Patil twins from the Harry Potter films](assets/patil-twins.jpg)
 
