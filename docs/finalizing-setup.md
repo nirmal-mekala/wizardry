@@ -46,6 +46,7 @@ to  create an easy checklist.
 - [ ] set normal windows to use last session, hotkey window to use ~
 - [ ] keys > hotkey > dedicated hotkey window (ctrl x 2). No transparency.
   Full screen.
+- [ ] set “Clear Buffer” app shortcut to `control` + `command` + `k` (because clearing that way is a recipe for disaster in `tmux` and `toggleterm`)
 
 ## Mail
 
