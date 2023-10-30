@@ -19,12 +19,12 @@ Read through the scripts before running so you know what’s going on.
 If you’re feeling lucky, you can simply run:
 
 ```sh
-./imperio
+./configuratio_maculus
 ```
 Or, to run and save output:
 
 ```sh
-./imperio 2>&1 | tee ~/imperio.log
+./configuratio_maculus 2>&1 | tee ~/configuratio_maculus.log
 ```
 
 ## What’s Included
