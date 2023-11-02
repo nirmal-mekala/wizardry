@@ -168,14 +168,17 @@ brew update
 # INSTALL: casks
 ###############################################################################
 if [ -e $cwd/installs/casks ]; then
-	chapter "Installing apps via Homebrew…"
 
-  brew tap homebrew/cask-fonts
+  if ask "Do you want to install casks?" Y; then
+  	chapter "Installing apps via Homebrew…"
+    brew tap homebrew/cask-fonts
+  	for cask in $(<$cwd/installs/casks); do
+  	    install_application_via_brew $cask
+  	done
+  else
+    print_success_muted "Declined to install dotfiles. Skipped.";
+  fi
 
-
-	for cask in $(<$cwd/installs/casks); do
-	    install_application_via_brew $cask
-	done
 fi
 
 ###############################################################################
