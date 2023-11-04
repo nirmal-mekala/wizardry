@@ -83,6 +83,7 @@ if type xcode-select >/dev/null 2>&1 && xpath=$( xcode-select --print-path ) &&
 else
 	step "Installing Xcode…"
 	xcode-select --install
+  read -p "   ✦  Press enter to continue…"
 	print_success "Xcode installed!"
 fi
 
