@@ -546,7 +546,7 @@ label_green() {
 
 completed() {
     printf "
-  ${bold}The best spells 🪄 works every time.${normal}
+  ${bold}The best spells 🪄 wor every time.${normal}
 "
     exit 0
 }
