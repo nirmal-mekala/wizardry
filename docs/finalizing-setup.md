@@ -7,6 +7,7 @@ to  create an easy checklist.
 ## Neovim
 
 - [ ] Open `neovim` and run `PlugInstall` to install plugins. 
+- [ ] Configure Codeium plugin.
 
 ## Alfred
 
@@ -37,16 +38,15 @@ to  create an easy checklist.
 
 ## Configure iTerm
 
-- [ ] Use Fira Code Nerd Font as Font
-- [ ] open the `.itermcolors` file to get material design colors
-- [ ] put transparency to ~ 16
-- [ ] put blur to ~ 51
-- [ ] unselect bold
-- [ ] use dark theme
-- [ ] set normal windows to use last session, hotkey window to use ~
-- [ ] keys > hotkey > dedicated hotkey window (ctrl x 2). No transparency.
+- [ ] Profiles > Text > Use Fira Code Nerd Font as Font
+- [ ] Profiles > Text > unselect bold
+- [ ] Profiles > Window > put transparency to ~ 16
+- [ ] Profiles > Window > put blur to ~ 51
+- [ ] Appearance > General > Theme > use dark theme
+- [ ] Keys > Hotkey > dedicated hotkey window (ctrl x 2). No transparency.
   Full screen.
-- [ ] set “Clear Buffer” app shortcut to `control` + `command` + `k` (because clearing that way is a recipe for disaster in `tmux` and `toggleterm`)
+- [ ] Send text at start: tmux
+- [ ] open the `.itermcolors` file to get desired theme
 
 ## Mail
 
@@ -62,36 +62,18 @@ to  create an easy checklist.
 
 - [ ] Clone organizer directory.
 
-## Obsidian
-
-- [ ] Point obsidian at organizer directory.
-- [ ] Use monospace font.
-- [ ] Install dataview community plugin.
-- [ ] Use vim keybindings.
-- [ ] Use fira code nerd font mono for code blocks and editing view
-- [ ] Detect all file extensions
-
 ## Bitwarden
 
 - [ ] Log in to Bitwarden.
-
-## Rocket
-
-- [ ] Start at login.
-- [ ] Use double tap `:`.
-- [ ] Set skin tone to 4.
 
 ## Todo.txt CLI
 
 - [ ] Point CLI to proper location.
 
-## Things 3
-
-- [ ] Log in.
-
 ## Hidden Bar
 
 - [ ] Set to start on login.
+- [ ] Set to use full menu bar.
 
 ## Lunar (Optional)
 
@@ -103,5 +85,8 @@ to  create an easy checklist.
 ## Thor
 
 - [ ] Set to launch at login.
-- [ ] Set hyper + `1` to default browser.
-- [ ] Set hyper + `2` to iTerm.
+- [ ] Set hyper + F to Firefox.
+- [ ] Set hyper + M to Messages.
+- [ ] Set hyper + E to Mail
+- [ ] Set hyper + I to iTerm.
+- [ ] Set hyper + B to Bitwarden.
