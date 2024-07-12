@@ -2,11 +2,11 @@
 
 While the script will get you most of the way there, some setup remains. To
 get things _just right_, follow these steps. You can even copy this file
-to  create an easy checklist.
+to create an easy checklist.
 
 ## Neovim
 
-- [ ] Open `neovim` and run `PlugInstall` to install plugins. 
+- [ ] Open `neovim` and run `PlugInstall` to install plugins.
 - [ ] Configure Codeium plugin.
 
 ## Alfred
@@ -18,8 +18,8 @@ to  create an easy checklist.
 ## Karabiner
 
 - [ ] Open Karabiner and allow input monitoring. (If Karabiner doesn’t
-  show up in the Privacy tab, check out the GitHub issues below for
-  a workaround.)
+      show up in the Privacy tab, check out the GitHub issues below for
+      a workaround.)
 
 - https://github.com/pqrs-org/Karabiner-Elements/issues/3011
 - https://github.com/pqrs-org/Karabiner-Elements/issues/1867
@@ -43,8 +43,6 @@ to  create an easy checklist.
 - [ ] Profiles > Window > put transparency to ~ 16
 - [ ] Profiles > Window > put blur to ~ 51
 - [ ] Appearance > General > Theme > use dark theme
-- [ ] Keys > Hotkey > dedicated hotkey window (ctrl x 2). No transparency.
-  Full screen.
 - [ ] Send text at start: tmux
 - [ ] open the `.itermcolors` file to get desired theme
 
@@ -56,7 +54,7 @@ to  create an easy checklist.
 
 - [ ] Configure to start at login.
 - [ ] Set up to use vimlike keybindings (control + option +) hjkl for left, down, up, right, and i top right u top left m bottom left , bottom
-  right
+      right
 
 ## Organizer
 
@@ -78,7 +76,7 @@ to  create an easy checklist.
 ## Lunar (Optional)
 
 - [ ] Set up hyper (command, shift, option, control) key + `[` to trigger
-  the HDMI input.
+      the HDMI input.
 - [ ] Set up hyper key + `]` to trigger the displayport input.
 - [ ] Set up hyper key + `|` to trigger the vga input.
 
