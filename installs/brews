@@ -11,7 +11,7 @@ neovim
 powerlevel10k
 todo-txt
 ghq
-peco
+fzf
 ripgrep
 m-cli
 tmux
