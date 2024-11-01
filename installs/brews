@@ -4,12 +4,10 @@ wget
 curl
 mas
 yarn
-exa
+eza
 neofetch
-bat
 neovim
 powerlevel10k
-todo-txt
 ghq
 fzf
 ripgrep
@@ -19,3 +17,6 @@ fff
 w3m
 lynx
 sc-im
+reattach-to-user-namespace
+fx
+bitwarden-cli
