@@ -32,7 +32,7 @@ defaults write com.apple.dock mineffect -string "scale"
 # Clone bgs directory if it doesn’t exist
 if [ ! -e "$HOME/Desktop/.bgs" ]; then
   printf "Cloning backgrounds into ~/Desktop/.bgs…\n"
-  git clone https://github.com/ndmekala/bgs.git "$HOME/Desktop/.bgs"
+  git clone https://github.com/nirmal-mekala/bgs.git "$HOME/Desktop/.bgs"
 fi
 
 # Set the desktop background to match the season

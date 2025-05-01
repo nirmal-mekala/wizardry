@@ -11,7 +11,7 @@ fi
 clone_dotfiles() {
   if [ ! -e ""$HOME"/.dotfiles" ]; then
     echo_install "Cloning dotfiles to "$HOME"/.dotfiles"
-    git clone https://github.com/ndmekala/dotfiles ""$HOME"/.dotfiles"
+    git clone https://github.com/nirmal-mekala/dotfiles ""$HOME"/.dotfiles"
   fi
 }
 
