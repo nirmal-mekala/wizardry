@@ -20,3 +20,4 @@ sc-im
 reattach-to-user-namespace
 fx
 bitwarden-cli
+luarocks
