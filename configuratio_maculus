@@ -166,31 +166,6 @@ if [ -e $cwd/installs/casks ]; then
 fi
 
 ###############################################################################
-# INSTALL: Mac App Store Apps
-###############################################################################
-chapter "Installing apps from App Store…"
-if [ -x mas ]; then
-
-  print_warning "Please install mas-cli first: brew mas. Skipping."
-
-  else
-
-  if [ -e $cwd/installs/apps ]; then
-    # The account command is not supported as of macOS 12, skip that check
-    # https://github.com/mas-cli/mas#known-issues
-
-    # Workaround for associative array in Bash 3
-    # https://stackoverflow.com/questions/6047648/bash-4-associative-arrays-error-declare-a-invalid-option
-    for app in $(<$cwd/installs/apps); do
-      KEY="${app%%::*}"
-      VALUE="${app##*::}"
-      install_application_via_app_store $KEY $VALUE
-    done
-  fi
-
-fi
-
-###############################################################################
 # CLEAN: Homebrew files
 ###############################################################################
 chapter "Cleaning up Homebrew files…"

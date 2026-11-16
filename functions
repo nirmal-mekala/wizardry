@@ -472,16 +472,6 @@ install_application_via_brew() {
     fi
 }
 
-install_application_via_app_store() {
-	if ! mas list | grep $1 &> /dev/null; then
-		echo_install "Installing $2"
-		mas install $1 >/dev/null
-		print_in_green "${bold}✓ installed!${normal}\n"
-	else
-		print_success_muted "$2 already installed. Skipped."
-	fi
-}
-
 install_npm_packages() {
 	if [[ $(cli_is_installed $2) == 0 ]]; then
 		echo_install "Installing $1"
