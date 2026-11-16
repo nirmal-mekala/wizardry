@@ -10,7 +10,7 @@ It can be run multiple times on the same machine safely. It installs, upgrades, 
 
 > Because there’s no place like `~`.
 
-This script is designed to be _customized_. As is, `customizations` clones and configure _my_ [dotfiles](https://github.com/nirmal-mekala/dotfiles) and macOS preferences—including setting a [seasonal desktop background](https://github.com/nirmal-mekala/bgs).
+This script is designed to be _customized_. As is, `configuratio_maculus` clones and configures _my_ [dotfiles](https://github.com/nirmal-mekala/dotfiles) and macOS preferences—including setting a [seasonal desktop background](https://github.com/nirmal-mekala/bgs).
 
 ## Usage
 
@@ -29,7 +29,7 @@ Or, to run and save output:
 
 ## What’s Included
 
-This script installs the macOS and CLI utilities, apps, text editors, IDEs, and nerd fonts that I use to stay productive. Browse through the `installs` directory to see what it includes.
+This script installs the macOS and CLI utilities, apps, text editors, IDEs, and nerd fonts that I use to stay productive. Browse through the `Brewfile` to see what it includes.
 
 ## Known Issues
 

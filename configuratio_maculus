@@ -129,40 +129,21 @@ if brew list | grep -Fq brew-cask; then
 fi
 
 ###############################################################################
-# INSTALL: brews
-###############################################################################
-if [ -e $cwd/installs/brews ]; then
-  if ask "Do you want to install brews?" Y; then
-    chapter "Installing Homebrew formulae…"
-    for brew in $(<$cwd/installs/brews); do
-      install_brews $brew
-    done
-  else
-    print_success_muted "Declined to install brews. Skipped.";
-  fi
-fi
-
-###############################################################################
 # UPDATE: Homebrew
 ###############################################################################
-chapter "Updating Homebrew formulae…"
+chapter "Updating Homebrew…"
 brew update
 
 ###############################################################################
-# INSTALL: casks
+# INSTALL: Homebrew packages (Brewfile)
 ###############################################################################
-if [ -e $cwd/installs/casks ]; then
-
-  if ask "Do you want to install casks?" Y; then
-    chapter "Installing apps via Homebrew…"
-    brew tap homebrew/cask-fonts
-    for cask in $(<$cwd/installs/casks); do
-      install_application_via_brew $cask
-    done
+if [ -e "$cwd/Brewfile" ]; then
+  if ask "Do you want to install Homebrew packages from the Brewfile?" Y; then
+    chapter "Installing Homebrew packages…"
+    brew bundle --file="$cwd/Brewfile"
   else
-    print_success_muted "Declined to install casks. Skipped.";
+    print_success_muted "Declined to install Homebrew packages. Skipped."
   fi
-
 fi
 
 ###############################################################################
@@ -172,14 +153,31 @@ chapter "Cleaning up Homebrew files…"
 brew cleanup 2> /dev/null
 
 ###############################################################################
-# OPTIONAL: Customizations
+# SETUP: Dotfiles
 ###############################################################################
-chapter "Running customizations…"
-
-if [ -f "$cwd/customizations" ]; then
-  . "$cwd/customizations"; printf "\n  Performing customizations…";
+chapter "Setting up dotfiles…"
+if ask "Do you want to set up dotfiles right now?" Y; then
+  if [ ! -e "$HOME/.dotfiles" ]; then
+    echo_install "Cloning dotfiles to $HOME/.dotfiles"
+    git clone https://github.com/nirmal-mekala/dotfiles "$HOME/.dotfiles"
+  fi
+  bash "$HOME/.dotfiles/setup_dotfiles"
 else
-  print_warning "No customizations found. Skipping."
+  print_success_muted "Declined to set up dotfiles. Skipped."
+fi
+
+###############################################################################
+# SETUP: macOS defaults
+###############################################################################
+chapter "Setting up macOS defaults…"
+if [ -e "$cwd/macos" ]; then
+  if ask "Do you want to set up macOS defaults?" Y; then
+    bash "$cwd/macos"
+  else
+    print_success_muted "Declined to set up macOS defaults. Skipped."
+  fi
+else
+  print_warning "No macOS setup script found! Skipping."
 fi
 
 ###############################################################################
