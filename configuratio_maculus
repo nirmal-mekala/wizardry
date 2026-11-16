@@ -4,7 +4,7 @@
 # ERROR: Let the user know if the script fails
 ###############################################################################
 
-trap 'ret=$?; test $ret -ne 0 && printf "\n   \e[31m\033[0m  Formation failed  \e[31m\033[0m\n" >&2; exit $ret' EXIT
+trap 'ret=$?; test $ret -ne 0 && printf "\n   \e[31m\033[0m  Wizardry failed\e[31m\033[0m\n" >&2; exit $ret' EXIT
 
 set -e
 
@@ -12,19 +12,14 @@ set -e
 # CHECK FOR FUNCTIONS: Check for required functions file
 ###############################################################################
 
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
 if [ -e functions ]; then
-  cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "functions"
+  . "functions"
 else
   printf "\n ⚠️  ./functions not found\n"
   exit 1
 fi
-
-###############################################################################
-# CHECK: Bash version
-###############################################################################
-
-check_bash_version
 
 ###############################################################################
 # Welcome Message          http://patorjk.com/software/taag/ ( font: Script )
@@ -45,8 +40,8 @@ printf "
 │  (Forked from ${bold}github.com/minamarkham/formation${reset})     │
 │─────────────────────────────────────────────────────│
 │  Safe to run multiple times on the same machine.    │
-│  It ${green}installs${reset}, ${blue}upgrades${reset}, or ${yellow}skips${reset} packages based     │
-│  on what is already installed on the machine.       │
+│  It ${green}installs${reset} or ${yellow}skips${reset} packages based on what is     │
+│  already installed on the machine.                  │
 ╰─────────────────────────────────────────────────────╯
    ${dim}$(get_os) $(get_os_version) ${normal} // ${dim}$BASH ${normal} // ${dim}$BASH_VERSION${reset}
 "
@@ -87,10 +82,6 @@ else
   print_success "Xcode installed!"
 fi
 
-if [ ! -d "$HOME/.bin/" ]; then
-  mkdir "$HOME/.bin"
-fi
-
 # -----------------------------------------------------------------------------
 # Homebrew
 # -----------------------------------------------------------------------------
@@ -106,26 +97,18 @@ if ! [ -x "$(command -v brew)" ]; then
       homebrew_path='/usr/local'
       ;;
     *)
-      echo 'An error occurred parsing system architecture'
+      print_error "Unrecognized system architecture: $(uname -m)"
+      exit 1
       ;;
   esac
 
-  # NOTE this code has not been tested thoroughly, but it intends to paramaterize
-  # the homebrew path so as to enable dynamic installation on either arm or x86 systems
-
-  (echo; echo "eval \"\$(${homebrew_path}/bin/brew shellenv)\"") >> $HOME/.zprofile
-  # eval "\$(${homebrew_path}/bin/brew shellenv)"
-  source $HOME/.zprofile
+  # Make brew available to future shells, and to the rest of this script
+  (echo; echo "eval \"\$(${homebrew_path}/bin/brew shellenv)\"") >> "$HOME/.zprofile"
+  eval "$("${homebrew_path}/bin/brew" shellenv)"
 
   print_success "Homebrew installed!"
 else
   print_success_muted "Homebrew already installed. Skipping."
-fi
-
-if brew list | grep -Fq brew-cask; then
-  step "Uninstalling old Homebrew-Cask…"
-  brew uninstall --force brew-cask
-  print_success "Homebrew-Cask uninstalled!"
 fi
 
 ###############################################################################
@@ -140,7 +123,7 @@ brew update
 if [ -e "$cwd/Brewfile" ]; then
   if ask "Do you want to install Homebrew packages from the Brewfile?" Y; then
     chapter "Installing Homebrew packages…"
-    brew bundle --file="$cwd/Brewfile"
+    brew bundle --no-upgrade --file="$cwd/Brewfile"
   else
     print_success_muted "Declined to install Homebrew packages. Skipped."
   fi
@@ -170,9 +153,9 @@ fi
 # SETUP: macOS defaults
 ###############################################################################
 chapter "Setting up macOS defaults…"
-if [ -e "$cwd/macos" ]; then
+if [ -e "$cwd/macos_defaults" ]; then
   if ask "Do you want to set up macOS defaults?" Y; then
-    bash "$cwd/macos"
+    bash "$cwd/macos_defaults"
   else
     print_success_muted "Declined to set up macOS defaults. Skipped."
   fi

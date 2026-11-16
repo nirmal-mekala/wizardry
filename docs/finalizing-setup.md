@@ -6,8 +6,9 @@ to create an easy checklist.
 
 ## Neovim
 
-- [ ] Open `neovim` and run `PlugInstall` to install plugins.
-- [ ] Configure Codeium plugin.
+- [ ] Open `neovim` and let lazy.nvim install plugins.
+- [ ] Configure the AI plugin (see `nvim/lua/config/ai.lua.sample` in the
+      dotfiles).
 
 ## Alfred
 
@@ -24,13 +25,13 @@ to create an easy checklist.
 - https://github.com/pqrs-org/Karabiner-Elements/issues/3011
 - https://github.com/pqrs-org/Karabiner-Elements/issues/1867
 
-## Firefox
+## Zen
 
 - [ ] Make default browser.
 - [ ] Use duckduckgo.
 - [ ] Remove everything but search bar from new tab page.
 
-### Configure Firefox Extensions
+### Configure Zen Extensions
 
 - [ ] Bitwarden (allow in private tabs)
 - [ ] AdBlocker Ultimate (allow in private tabs)
@@ -46,11 +47,7 @@ to create an easy checklist.
 - [ ] Send text at start: tmux
 - [ ] open the `.itermcolors` file to get desired theme
 
-## Mail
-
-- [ ] Set view to compact (view > use column layout)
-
-## Magnet
+## Rectangle
 
 - [ ] Configure to start at login.
 - [ ] Set up to use vimlike keybindings (control + option +) hjkl for left, down, up, right, and i top right u top left m bottom left , bottom
@@ -72,19 +69,3 @@ to create an easy checklist.
 
 - [ ] Set to start on login.
 - [ ] Set to use full menu bar.
-
-## Lunar (Optional)
-
-- [ ] Set up hyper (command, shift, option, control) key + `[` to trigger
-      the HDMI input.
-- [ ] Set up hyper key + `]` to trigger the displayport input.
-- [ ] Set up hyper key + `|` to trigger the vga input.
-
-## Thor
-
-- [ ] Set to launch at login.
-- [ ] Set hyper + F to Firefox.
-- [ ] Set hyper + M to Messages.
-- [ ] Set hyper + E to Mail
-- [ ] Set hyper + I to iTerm.
-- [ ] Set hyper + B to Bitwarden.

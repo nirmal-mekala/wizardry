@@ -4,7 +4,7 @@
 
 ![The Wizard of Oz](assets/oz.jpg)
 
-It can be run multiple times on the same machine safely. It installs, upgrades, or skips packages based on what is already installed on the machine.
+It can be run multiple times on the same machine safely. It installs or skips packages based on what is already installed on the machine.
 
 ## Customization
 
@@ -38,7 +38,7 @@ Cask does not recognize applications installed outside of Homebrew Cask – in t
 ## Acknowledgements
 
 This script is a fork of [formation](https://github.com/minamarkham/formation). It also draws from…
-- [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles) (particularly with `macos`)
+- [Mathias Bynens'](https://github.com/mathiasbynens) [dotfiles](https://github.com/mathiasbynens/dotfiles) (particularly with `macos_defaults`)
 - thoughtbot's [laptop](https://github.com/thoughtbot/laptop/)
 
 I also want to acknowledge witches and wizards of all stripes…

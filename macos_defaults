@@ -26,6 +26,9 @@ defaults write -g com.apple.mouse.scaling -float 6.0
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 
+# Restart the Dock so the settings above take effect
+killall Dock
+
 # Set desktop bg with m-cli
 # =========================
 
@@ -36,7 +39,7 @@ if [ ! -e "$HOME/Desktop/.bgs" ]; then
 fi
 
 # Set the desktop background to match the season
-if [[ $(brew list | grep m-cli) ]]; then
+if command -v m >/dev/null 2>&1; then
   mmdd=$(date '+%m%d' | sed 's/^0*//')
   if [[ $mmdd -lt 300 || $mmdd -ge 1200 ]]; then
     printf "Setting the winter ❄️  background…\n"
@@ -52,7 +55,7 @@ if [[ $(brew list | grep m-cli) ]]; then
     m wallpaper "$HOME/Desktop/.bgs/fall.jpg"
   fi
 else
-  printf "m-cli not installed! Skipping…\\nn"
+  printf "m-cli not installed! Skipping…\n"
 fi
 
 

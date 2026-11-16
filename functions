@@ -9,7 +9,6 @@ count=1
 reset="\033[0m"
 dot="\033[31m▸ $reset"
 dim="\033[2m"
-blue="\e[34m"
 green="\e[32m"
 yellow="\e[33m"
 bold=$(tput bold)
@@ -61,14 +60,6 @@ print_error() {
 # Meta Checks
 ###############################################################################
 
-check_bash_version() {
-    if ((BASH_VERSINFO[0] < 3))
-    then
-        print_error "Sorry, you need at least bash-3.0 to run this script."
-        exit 1
-    fi
-}
-
 get_os() {
     if [ "$(uname -s)" == "Darwin" ]; then
         printf "macOS"
@@ -84,11 +75,11 @@ get_os_version() {
 }
 
 check_internet_connection() {
-    if [ ping -q -w1 -c1 google.com &>/dev/null ]; then
-        print_error "Please check your internet connection";
-        exit 0
+    if curl -fsS --max-time 10 -o /dev/null https://github.com; then
+        print_success "Internet connection"
     else
-        print_success "Internet connection";
+        print_error "Please check your internet connection"
+        exit 1
     fi
 }
 
@@ -157,7 +148,7 @@ ask() {
 copy_key_github() {
     inform 'Public key copied! Paste into Github…'
     [[ -f $pub ]] && cat $pub | pbcopy
-    open 'https://github.com/account/ssh'
+    open 'https://github.com/settings/keys'
     read -p "   ✦  Press enter to continue…"
     print_success "SSH key"
     return
@@ -173,19 +164,23 @@ github_key_check() {
 
 create_ssh_key() {
 	if ask "No SSH key found. Create one?" Y; then
-		ssh-keygen -t rsa; github_key_check;
+		ssh-keygen -t ed25519 -f "$HOME/.ssh/id_ed25519"; github_key_check;
 	else
 		return 0;
 	fi
 }
 
 ssh_key_setup() {
-    local pub=$HOME/.ssh/id_rsa.pub
+    local pub=$HOME/.ssh/id_ed25519.pub
 
-    if ! [[ -f $pub ]]; then
-        create_ssh_key
-    else
+    if [[ -f $pub ]]; then
         github_key_check
+    elif [[ -f $HOME/.ssh/id_rsa.pub ]]; then
+        # Existing older key; use it rather than prompting for a new one
+        pub=$HOME/.ssh/id_rsa.pub
+        github_key_check
+    else
+        create_ssh_key
     fi
 }
 
